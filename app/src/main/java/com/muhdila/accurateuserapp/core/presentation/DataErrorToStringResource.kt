@@ -4,20 +4,24 @@ import com.muhdila.accurateuserapp.R
 import com.muhdila.accurateuserapp.core.domain.DataError
 
 fun DataError.toUiText(): UiText {
-    val stringRes = when(this) {
-        DataError.Remote.UNAUTHORIZED -> R.string.error_unauthorized
-        DataError.Remote.BAD_REQUEST -> R.string.error_bad_request
-        DataError.Remote.FORBIDDEN -> R.string.error_forbidden
-        DataError.Remote.NOT_FOUND -> R.string.error_not_found
-        DataError.Local.DISK_FULL -> R.string.error_disk_full
-        DataError.Local.UNKNOWN -> R.string.error_unknown
-        DataError.Remote.REQUEST_TIMEOUT -> R.string.error_request_timeout
-        DataError.Remote.TOO_MANY_REQUESTS -> R.string.error_too_many_requests
-        DataError.Remote.NO_INTERNET -> R.string.error_no_internet
-        DataError.Remote.SERVER -> R.string.error_unknown
-        DataError.Remote.SERIALIZATION -> R.string.error_serialization
-        DataError.Remote.UNKNOWN -> R.string.error_unknown
+    return when(this) {
+        is DataError.Remote.BadRequest -> {
+            if (!this.message.isNullOrBlank()) {
+                UiText.DynamicString(this.message)
+            } else {
+                UiText.StringResourceId(R.string.error_bad_request)
+            }
+        }
+        is DataError.Remote.Unauthorized -> UiText.StringResourceId(R.string.error_unauthorized)
+        is DataError.Remote.Forbidden -> UiText.StringResourceId(R.string.error_forbidden)
+        is DataError.Remote.NotFound -> UiText.StringResourceId(R.string.error_not_found)
+        DataError.Local.DISK_FULL -> UiText.StringResourceId(R.string.error_disk_full)
+        DataError.Local.UNKNOWN -> UiText.StringResourceId(R.string.error_unknown)
+        is DataError.Remote.RequestTimeout -> UiText.StringResourceId(R.string.error_request_timeout)
+        is DataError.Remote.TooManyRequests -> UiText.StringResourceId(R.string.error_too_many_requests)
+        is DataError.Remote.NoInternet -> UiText.StringResourceId(R.string.error_no_internet)
+        is DataError.Remote.Server -> UiText.StringResourceId(R.string.error_unknown)
+        is DataError.Remote.Serialization -> UiText.StringResourceId(R.string.error_serialization)
+        is DataError.Remote.Unknown -> UiText.StringResourceId(R.string.error_unknown)
     }
-    
-    return UiText.StringResourceId(stringRes)
 }

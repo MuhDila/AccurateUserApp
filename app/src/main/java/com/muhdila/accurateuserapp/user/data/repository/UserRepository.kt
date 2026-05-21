@@ -45,7 +45,13 @@ class UserRepository @Inject constructor(
                 Result.Success(serverUser)
             }
             is Result.Error -> {
-                Result.Error(result.error)
+                val error = result.error
+                if (error is DataError.Remote.NoInternet || error is DataError.Remote.RequestTimeout) {
+                    Result.Success(localUser)
+                } else {
+                    safeDbCall { userDao.deleteUser(localUser.id) }
+                    Result.Error(error)
+                }
             }
         }
     }
@@ -57,8 +63,16 @@ class UserRepository @Inject constructor(
             val result = safeApiCall {
                 userApiService.createUser(entity.toDomain().toDto())
             }
-            if (result is Result.Success) {
-                userDao.markAsSynced(entity.id)
+            when (result) {
+                is Result.Success -> {
+                    userDao.markAsSynced(entity.id)
+                }
+                is Result.Error -> {
+                    val error = result.error
+                    if (error !is DataError.Remote.NoInternet && error !is DataError.Remote.RequestTimeout) {
+                        safeDbCall { userDao.deleteUser(entity.id) }
+                    }
+                }
             }
         }
 

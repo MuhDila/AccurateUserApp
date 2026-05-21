@@ -146,7 +146,13 @@ class UserViewModel @Inject constructor(
                         )
                     }
                     analyticsTracker.logEvent("user_added_locally", mapOf("name" to user.name, "city" to user.city))
-                    _effect.send(UserEffect.ShowSnackbar(UiText.StringResourceId(R.string.user_added_successfully)))
+                    
+                    val messageRes = if (result.data.isSynced) {
+                        R.string.user_added_successfully
+                    } else {
+                        R.string.user_added_offline_successfully
+                    }
+                    _effect.send(UserEffect.ShowSnackbar(UiText.StringResourceId(messageRes)))
 
                     viewModelScope.launch {
                         kotlinx.coroutines.delay(1500)
@@ -154,7 +160,12 @@ class UserViewModel @Inject constructor(
                     }
                 }
                 is Result.Error -> {
-                    _state.update { it.copy(isAddingUser = false) }
+                    _state.update {
+                        it.copy(
+                            isAddingUser = false,
+                            showAddDialog = false
+                        )
+                    }
                     _effect.send(UserEffect.ShowSnackbar(result.error.toUiText()))
                 }
             }

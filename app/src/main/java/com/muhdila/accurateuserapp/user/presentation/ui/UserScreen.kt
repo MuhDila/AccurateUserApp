@@ -27,6 +27,7 @@ import com.muhdila.accurateuserapp.user.presentation.viewmodel.UserViewModel
 import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import kotlinx.coroutines.flow.collectLatest
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.platform.LocalContext
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -38,6 +39,7 @@ fun UserScreen(
     val snackbarHostState = remember { SnackbarHostState() }
     var showFilterDialog by remember { mutableStateOf(false) }
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+    val context = LocalContext.current
 
     val columnCount = when (windowWidthSizeClass) {
         WindowWidthSizeClass.Compact  -> 1
@@ -48,8 +50,9 @@ fun UserScreen(
     LaunchedEffect(Unit) {
         viewModel.effect.collectLatest { effect ->
             when (effect) {
-                is UserEffect.ShowSnackbar ->
-                    snackbarHostState.showSnackbar(effect.message.asString(snackbarHostState.currentSnackbarData?.let { null } ?: return@collectLatest))
+                is UserEffect.ShowSnackbar -> {
+                    snackbarHostState.showSnackbar(effect.message.asString(context))
+                }
             }
         }
     }
