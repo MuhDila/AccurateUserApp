@@ -1,21 +1,16 @@
-# Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
-# proguardFiles setting in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
+# Preserve Line numbers for release stacktraces
+-keepattributes SourceFile,LineNumberTable
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+# Preserve @Keep annotations
+-keep @androidx.annotation.Keep class * { *; }
 
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
+# Moshi Keep Rules
+-keepattributes *Annotation*,Signature,InnerClasses,EnclosingMethod
+-dontwarn okio.**
+-keep class com.squareup.moshi.** { *; }
+-keep interface com.squareup.moshi.** { *; }
 
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
+# App DTOs, Entities & Models (Serialization/Database safety)
+-keep class com.muhdila.accurateuserapp.user.data.remote.dto.** { *; }
+-keep class com.muhdila.accurateuserapp.user.data.local.entity.** { *; }
+-keep class com.muhdila.accurateuserapp.user.domain.model.** { *; }
