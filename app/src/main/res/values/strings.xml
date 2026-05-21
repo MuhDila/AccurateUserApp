@@ -53,4 +53,5 @@
     <string name="pending_sync_title">There is unsynchronized data</string>
     <string name="pending_sync_subtitle">Will sync automatically when back online</string>
     <string name="user_added_successfully">User added successfully!</string>
+    <string name="user_added_offline_successfully">User added locally. Will sync when online!</string>
 </resources>

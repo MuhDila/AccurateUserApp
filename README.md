@@ -78,4 +78,4 @@ Tampilan dan interaksi aplikasi didesain dengan prinsip kesederhanaan dan minima
 ## Download Release APK
 
 Anda dapat mengunduh build rilis (APK) yang sudah dikompilasi langsung pada halaman rilis resmi GitHub:
-*   [Download app-release.apk (GitHub Release v1.0.0)](https://github.com/MuhDila/AccurateUserApp/releases/tag/v1.0.0)
+*   [Download app-release.apk (GitHub Release v1.0.1)](https://github.com/MuhDila/AccurateUserApp/releases/tag/v1.0.1)
