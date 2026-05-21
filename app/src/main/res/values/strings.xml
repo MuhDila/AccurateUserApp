@@ -1,3 +1,56 @@
 <resources>
-    <string name="app_name">Accurate User App</string>
+    <!-- App name -->
+    <string name="app_name">Accurate</string>
+
+    <!-- Error messages -->
+    <string name="error_unauthorized">Unauthorized access. Please try again.</string>
+    <string name="error_bad_request">Invalid request.</string>
+    <string name="error_forbidden">Access denied.</string>
+    <string name="error_not_found">Data not found.</string>
+    <string name="error_disk_full">Device storage is full.</string>
+    <string name="error_unknown">An unexpected error occurred.</string>
+    <string name="error_request_timeout">Request timed out. Please try again.</string>
+    <string name="error_too_many_requests">Too many requests. Please wait.</string>
+    <string name="error_no_internet">No internet connection. Displaying local data.</string>
+    <string name="error_serialization">Failed to process data from the server.</string>
+
+    <!-- Form Validation Errors -->
+    <string name="error_name_empty">Name cannot be empty</string>
+    <string name="error_name_too_short">Name must be at least 2 characters</string>
+    <string name="error_email_empty">Email cannot be empty</string>
+    <string name="error_email_invalid">Invalid email format</string>
+    <string name="error_phone_empty">Phone number cannot be empty</string>
+    <string name="error_phone_too_short">Phone number must be at least 6 digits</string>
+    <string name="error_city_empty">City cannot be empty</string>
+
+    <!-- UI Strings -->
+    <string name="add_user">Add User</string>
+    <string name="add_user_title">Add User</string>
+    <string name="full_name">Full Name</string>
+    <string name="address">Address</string>
+    <string name="email">Email</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="city">City</string>
+    <string name="gender">Gender</string>
+    <string name="gender_male_symbol">♂ Male</string>
+    <string name="gender_female_symbol">♀ Female</string>
+    <string name="save">Save</string>
+    <string name="close">Close</string>
+    <string name="filter_city">Filter city</string>
+    <string name="filter_city_title">Filter by City</string>
+    <string name="all_cities">All Cities</string>
+    <string name="users_count_format">%1$d of %2$d users</string>
+    <string name="clear_filter">Clear filter</string>
+    <string name="loading_data">Loading data...</string>
+    <string name="accurate_users">Accurate Users</string>
+    <string name="sort_users">Sort</string>
+    <string name="refresh_users">Refresh</string>
+    <string name="search_placeholder">Search by name, city, or email...</string>
+    <string name="clear_search">Clear search</string>
+    <string name="no_users_found">No users found</string>
+    <string name="unsynced">Unsynchronized</string>
+    <string name="pending">Pending</string>
+    <string name="pending_sync_title">There is unsynchronized data</string>
+    <string name="pending_sync_subtitle">Will sync automatically when back online</string>
+    <string name="user_added_successfully">User added successfully!</string>
 </resources>
