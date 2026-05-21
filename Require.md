@@ -20,16 +20,16 @@ Anda akan diberikan sebuah API Endpoint untuk CRUD sebuah resource data user di 
 
 ## ✨ Nice to Have
 
-- [ ] Implementasi SOLID principle
-- [ ] Implementasi Clean architecture
-- [ ] Implementasi Adaptive layout
-- [ ] Implementasi Android Hilt
-- [ ] Implementasi Jetpack Compose, atau view binding dan data binding.
-- [ ] Implementasi Reactive Programming (RxAndroid atau Coroutine Flow).
-- [ ] Implementasi Moshi sebagai Json Converter
-- [ ] Implementasi Room Database
-- [ ] Implementasi Work Manager
-- [ ] Implementasi Firebase Event
+- [x] Implementasi SOLID principle
+- [x] Implementasi Clean architecture
+- [x] Implementasi Adaptive layout
+- [x] Implementasi Android Hilt
+- [x] Implementasi Jetpack Compose, atau view binding dan data binding.
+- [x] Implementasi Reactive Programming (RxAndroid atau Coroutine Flow).
+- [x] Implementasi Moshi sebagai Json Converter
+- [x] Implementasi Room Database
+- [x] Implementasi Work Manager
+- [x] Implementasi Firebase Event
 
 ---
 
