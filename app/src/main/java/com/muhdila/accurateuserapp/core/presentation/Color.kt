@@ -1,4 +1,4 @@
-package com.muhdila.accurateuserapp.ui.theme
+package com.muhdila.accurateuserapp.core.presentation
 
 import androidx.compose.ui.graphics.Color
 
